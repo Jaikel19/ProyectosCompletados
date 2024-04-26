@@ -1,0 +1,22 @@
+<div>
+  <p class="sub-title">Matricula</p>
+</div>
+
+<div class="main-list">
+  <div *ngFor="let matricula of matriculas" class="list-group">
+    <div class="list-group-item">
+      <p class="list-item-name mb-0">ID de la matricula: {{ matricula.id_matricula }}</p>
+      <p class="list-item-company mb-1">ID del estudiante: {{ matricula.id_estudiante }}</p>
+      <p class="list-item-company mb-1">ID del curso: {{ matricula.id_curso }}</p>
+      <p class="list-item-company mb-1">Año academico: {{ matricula.ano_academico }}</p>
+      <div class="mb-2">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-dark" (click)="openEditModal(matricula.id_matricula)">Actualizar</button>
+          <button type="button" (click)="onDeleteMatricula(matricula)" class="btn btn-danger">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,42 @@
+/* Estilos para la sección */
+section {
+    background-color: #007bff; /* Fondo azul */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura de la sección */
+  }
+  
+  /* Estilos para la navegación */
+  nav {
+    text-align: center; /* Centra los elementos del nav */
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block; /* Muestra los elementos en línea */
+    margin-right: 20px; /* Espacio entre los elementos de la lista */
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Color del texto */
+    padding: 10px 20px; /* Ajusta el relleno de los botones */
+    border: 1px solid #ffffff; /* Borde alrededor de los enlaces */
+    border-radius: 10px;
+    transition: background-color 0.3s ease; /* Efecto de transición al pasar el cursor */
+  }
+  
+  nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Color de fondo al pasar el cursor */
+  }
+  
