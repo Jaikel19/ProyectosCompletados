@@ -1,0 +1,645 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*-----------------------------HEADER---------------------------------------*/
+header {
+    background: url("img/banner.jpg") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 50% -50px;
+}
+
+.bigheadline, .subheadline {
+    margin: 0;
+    text-align: center;
+    color: white;
+    animation: fadeIn 1s ease-in-out; /* Animación fadeIn */
+  }
+  
+  .bigheadline {
+    font-weight: 100;
+    font-size: 10em;
+  }
+  
+  .subheadline {
+    font-weight: 200;
+    font-size: 3em;
+    animation: slideInFromTop 1s ease-in-out; /* Animación slideInFromTop */
+  }  
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes slideInFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+/*--------------------------------------------------------------------------*/
+
+/*-----------------------------SCROLL---------------------------------------*/
+  
+.scroll-down {
+    opacity: 1;
+    -webkit-transition: all .5s ease-in 3s;
+    transition: all .5s ease-in 3s;
+}
+  
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -16px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #FFF;
+    background-size: 14px auto;
+    border-radius: 50%;
+    z-index: 2;
+    -webkit-animation: bounce 2s infinite 2s;
+    animation: bounce 2s infinite 2s;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    transform: scale(1)
+}
+  
+.scroll-down:before {
+      position: absolute;
+      top: calc(50% - 8px);
+      left: calc(50% - 6px);
+      transform: rotate(-45deg);
+      display: block;
+      width: 12px;
+      height: 12px;
+      content: "";
+      border: 2px solid white;
+      border-width: 0px 0 2px 2px;
+}
+  
+/*--------------------------------------------------------------------------*/
+
+/*-----------------------------MENU---------------------------------------*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+}
+
+.capa-logo img {
+    height: 50px; /* Ajusta la altura según sea necesario */
+}
+
+.capa-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.capa-menu ul li {
+    margin-right: 10px; /* Espacio entre elementos de menú */
+}
+
+.capa-menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.capa-menu a:hover {
+    background-color: #0057FA;
+    border-color: white;
+}
+
+
+.capa-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos del menú */
+}
+
+.capa-menu ul li {
+    margin-right: 10px;
+    display: flex; /* Ajusta para que los elementos se alineen correctamente */
+    align-items: center;
+}
+
+.language-text {
+    color: white;
+    margin-right: 5px;
+}
+
+.language-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.language-switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.capa-menu, .capa-logo{
+    width: 50%;
+    text-align: center;
+    background-color: black;
+}
+
+.capa-logo img{
+    height: 150px;
+}
+
+/*--------------------------------------------------------------------------*/
+
+/*-----------------------------SWITCH---------------------------------------*/
+.language-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.language-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4900FA;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Texto de idioma */
+.language-text {
+    position: relative;
+    top: -10px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+/*--------------------------------------------------------------------------*/
+
+/*-----------------------------CV---------------------------------------*/
+#cv{
+    margin-top: 50PX;
+}
+
+/* Estilos para el dropdown */
+.dropdown {
+    position: relative;
+    text-align: center; /* Centrar horizontalmente el dropdown */
+}
+
+/* Estilo para el botón principal */
+.dropbtn {
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo para el contenido del dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0057FA;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    border-radius: 5px; /* Añadir borde redondeado */
+}
+
+/* Estilo para los botones dentro del dropdown */
+.dropdown-content button {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: none;
+    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Estilo para los botones al pasar el mouse */
+.dropdown-content button:hover {
+    background-color: #0008FA; /* Cambio de color de fondo al pasar el mouse */
+}
+
+/* Mostrar el dropdown cuando se pasa el mouse sobre él */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Añadir flecha abajo al botón principal */
+.dropbtn::after {
+    content: "\25BC";
+    margin-left: 5px;
+}
+
+
+
+
+/*--------------------------------------------------------------------------*/
+
+/*-----------------------------SERVICIOS---------------------------------------*/
+
+
+.service-area {
+    margin: 80px 0px 40px 0px;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.block_title {
+    font-size: 4em;
+    font-weight: 300;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 70px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.services {
+    max-width: 293px;
+    height: 263px;
+    padding: 0px 15px 0px 15px;
+}
+
+.service-wrap1, .service-wrap2, .service-wrap3 {
+    width: 140px;
+    height: 140px;
+    border: 1px solid #B5B5B5;
+    text-align: center;
+    display: flex; /* Utilizar flexbox */
+    align-items: center; /* Centrar verticalmente los elementos */
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    border-radius: 50%;
+    padding: 5px; /* Ajustar el espacio interior */
+    display: block;
+}
+
+.service-wrap1 h4, .service-wrap2 h4, .service-wrap3 h4 {
+    margin-top: 10px; /* Espacio entre el icono y el texto */
+    font-size: 1.5em; /* Tamaño del texto */
+    color: black; /* Color del texto */
+}
+
+
+.service-wrap1 i {
+    margin-top: 10px;
+    color: #0008FA;
+    font-size: 5em; /* Tamaño del icono más grande */
+}
+
+.service-wrap2 i {
+    margin-top: 10px;
+    color: #4900FA;
+    font-size: 5em; /* Tamaño del icono más grande */
+}
+
+.service-wrap3 i {
+    margin-top: 10px;
+    color: #0057FA;
+    font-size: 5em; /* Tamaño del icono más grande */
+}
+
+/* Añadir transición para la propiedad de opacidad */
+.service-wrap1 i,
+.service-wrap2 i,
+.service-wrap3 i {
+    transition: opacity 0.3s ease;
+}
+
+/* Aplicar opacidad reducida al icono cuando se pasa el cursor */
+.service-wrap1:hover i,
+.service-wrap2:hover i,
+.service-wrap3:hover i {
+    opacity: 0.7;
+}
+
+/* Añadir transición para la propiedad de transformación */
+.service-wrap1:hover,
+.service-wrap2:hover,
+.service-wrap3:hover {
+    transform: scale(1.1); /* Cambiar el tamaño del icono al 110% en el hover */
+}
+
+
+/*--------------------------------------------------------------------------*/
+
+/*-----------------------------PROYECTOS---------------------------------------*/
+
+#cards{
+    align-items: center;
+    height: 855px;
+    padding-top: 100PX;
+    background-color: BLACK;
+}
+#cards .block_title{
+    color: #4900FA;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+  }
+  
+  .card {
+    width: 325px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 61%;
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
+  
+  .card-content h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .card-content p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.3;
+    text-align: center;
+  }
+  
+  .btn {
+    display: block;
+    padding: 8px 16px;
+    background-color: #0057fa;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 16px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #0008fa;
+  }
+  
+/*--------------------------------------------------------------------------*/
+
+/*-----------------------------CONTACTO---------------------------------------*/
+#contacto{
+    align-items: center;
+    height: 855px;
+    padding-top: 100PX;
+    background: linear-gradient(70deg, #0008FA, #4900FA,#0057FA);
+}
+
+#sendEmailForm {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    color: white;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+    width: 50%;
+    margin: 0 auto; /* Centra los inputs horizontalmente */
+    display: block; /* Asegura que los inputs se muestren en una línea separada */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    width: 50%; /* Ajusta el ancho del botón */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    padding: 10px;
+    background-color: #0057FA;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #0008FA;
+}
+
+/*--------------------------------------------------------------------------*/
+
+/*-----------------------------SCROLL UP---------------------------------------*/
+
+#scrollButton {
+    position: fixed;
+    bottom: 90px; /* Ajusta la distancia desde el borde inferior */
+    right: 20px; /* Ajusta la distancia desde el borde derecho */
+    display: none; /* Ocultar por defecto */
+    margin-top: 10%; /* Espacio entre el botón y el contenido */
+    width: 60px; /* Mismo ancho que el botón de WhatsApp */
+    height: 60px; /* Mismo alto que el botón de WhatsApp */
+    padding: 0; /* Elimina el relleno del botón */
+    font-size: 16px; /* Tamaño de fuente del botón */
+    border-radius: 50%; /* Hace que el botón sea circular */
+    background-color: #4900FA; /* Color de fondo del botón */
+    border: none; /* Quita el borde del botón */
+    color: white; /* Color del texto */
+    z-index: 1000; /* Asegura que esté encima del botón de WhatsApp */
+}
+
+#scrollButton:before {
+    content: '\25B2'; /* Código Unicode para una flecha hacia arriba */
+    font-size: 20px; /* Tamaño de la flecha */
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* Ajusta la distancia desde el borde inferior */
+    right: 20px; /* Ajusta la distancia desde el borde derecho */
+    width: 60px;
+    height: 60px;
+    background-color: green; /* Color de fondo del botón */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.whatsapp-icon {
+    font-size: 30px; /* Tamaño del icono */
+    color: white; /* Color del icono */
+}
+
+
+/*-----------------------------REDES---------------------------------------*/
+
+footer {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    padding: 20px;
+    text-align: center;
+}
+footer a {
+    color: #fff; /* Iconos en blanco */
+    text-decoration: none;
+    margin: 0 10px; /* Espaciado entre los iconos */
+    font-size: 50px; /* Tamaño de los iconos */
+}
+
+
+/*--------------------------------------------------------------------------*/
+
+/*
+h1{
+    color: #4900FA;
+    background-color: #0008FA;
+}
+
+p{
+    background-color: #0057FA;
+}
+*/

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    
+        <section>
+            <header id="header" style="height: 953px;">
+                <div class="center text-center" style="padding-top: 336.33px;">
+                    <h1 class="bigheadline">Jaikel Guzman</h1>
+                    <h4 class="subheadline">Desarrollador de software</h4>
+                </div>
+                <div>
+                    <a href="#" class="scroll-down"></a>
+                </div>
+            </header>
+        </section>
+        
+        <section>
+            <nav class="navbar">
+                <div class="capa-logo">
+                    <img src="img/logo1.png" alt="">
+                </div>
+                <div class="capa-menu">
+                    <ul>
+                        <li><a href="#header">INICIO</a></li>
+                        <li><a href="#cv">CV</a></li>
+                        <li><a href="#services">SERVICIOS</a></li>
+                        <li><a href="#cards">PROYECTOS</a></li>
+                        <li><a href="#contacto">CONTACTO</a></li>
+                        <li><a href="#redes">REDES</a></li>
+                        <li>
+                            <span class="language-text">ES</span>
+                            <label class="language-switch" for="languageSwitch">
+                                <input type="checkbox" id="languageSwitch" onclick="toggleLanguage()">
+                                <span class="slider round"></span>
+                            </label>
+                            <span class="language-text">EN</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>            
+        </section>
+
+    <div id="content">
+        <section id="cv">
+            <div class="dropdown">
+                <button class="dropbtn">Descargar CV</button>
+                <div class="dropdown-content">
+                  <button id="downloadCVSpanish">Español</button>
+                  <button id="downloadCVEnglish">Inglés</button>
+                </div>
+              </div>
+              
+        </section>
+
+        <section id="services" class="service-area">
+            <div class="container">
+                <h2 class="block_title">SERVICIOS</h2>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap1">    
+                                <i class="fa-brands fa-css3-alt"></i>
+                                <h3>Css</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap1">
+                                <i class="fa-brands fa-html5"></i>
+                                <h3>Html</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap1">
+                                <i class="fa-brands fa-js"></i>
+                                <h3>Javascript</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap1">
+                                <i class="fa-brands fa-bootstrap"></i>
+                                <h3>Bootstrap</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap1">
+                                <i class="fa-brands fa-angular"></i>
+                                <h3>Angular</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap1">
+                                <i class="fa-brands fa-sass"></i>
+                                <h3>SASS</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap2">    
+                                <i class="fa-solid fa-database"></i>
+                                <h3>SQL</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap2">    
+                                <i class="fa-solid fa-database"></i>
+                                <h3>Mongodb</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap2">    
+                                <i class="fa-solid fa-database"></i>
+                                <h3>Mysql</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap3">    
+                                <i class="fa-solid fa-code"></i>
+                                <h3>.Net</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="services">
+                            <div class="service-wrap3">
+                                <i class="fa-brands fa-java"></i>
+                                <h3>Java</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="cards">
+            <h2 class="block_title">PROYECTOS</h2>
+            <div class="card-container">
+                <div class="card">
+                  <img src="img/proyecto1.jpg">
+                  <div class="card-content">
+                    <h2>Proyecto 1</h2>
+                    <p>Sistema de eventos.</p>
+                  </div>
+                  <a href="https://github.com/Jaikel19/ProyectosCompletados/tree/main/SmartBitEventos" class="btn"  target="_blank">Conocer más</a>
+                </div>
+                
+                <div class="card">
+                  <img src="img/proyecto3.JPG">
+                  <div class="card-content">
+                    <h2>Proyecto 2</h2>
+                    <p>Sistema de matricula universitaria.</p>
+                  </div>
+                  <a href="https://github.com/Jaikel19/ProyectosCompletados/tree/main/MaticulaUniversitaria" class="btn"  target="_blank">Conocer más</a>
+                </div>
+              
+                <div class="card">
+                  <img src="img/proyecto2.jpg">
+                  <div class="card-content">
+                    <h2>Proyecto 3</h2>
+                    <p>Inventario de equipos.</p>
+                  </div>
+                  <a href="https://github.com/Jaikel19/ProyectosCompletados/tree/main/InventarioEquipos" class="btn"  target="_blank">Conocer más</a>
+                </div>
+              </div>               
+        </section>
+
+        <section id="contacto">
+            <h2 class="block_title">CONTACTO</h2>
+            <form id="sendEmail" action="https://formsubmit.co/jaguzmanc@ucenfotec.ac.cr" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Asunto</label>
+                    <input type="text" class="form-control" id="subject" name="subject" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="message" rows="3" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </form>
+        </section>
+
+        <button id="scrollButton" onclick="scrollToTop()"></button>
+    </div>
+
+    <div>
+        <!-- Botón flotante de WhatsApp -->
+        <a href="https://wa.me/50686790704" target="_blank" class="whatsapp-button">
+            <!-- Icono de WhatsApp -->
+            <span class="whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
+        </a>
+    </div>
+
+    <section id="redes">
+        <footer>
+            <div>
+                <a href="https://linkedin.com/in/jguzmanc/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Jaikel19" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+            <div>
+                <a>
+                    <i class="fa-solid fa-copyright"></i>
+                </a>
+            </div>
+        </footer>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="logic.js"></script>
+</body>
+</html>
