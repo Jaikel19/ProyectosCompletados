@@ -1,0 +1,70 @@
+﻿@model DTO.Evento
+@{
+    var boletos = Model.TipoBoletoEventos;
+    var asientosTomados = Model.EventoAsientos.Count();
+    int asientos = Model.Capacidad - asientosTomados;
+}
+
+<div id="myModal" class="modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 150%;">
+            <div class="modal-header">
+                <h5 class="modal-title">Comprar boletos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>            
+            <div class="modal-body">
+                @Html.Hidden("asientosDisponibles", asientos)
+                @Html.Hidden("asientosSolicitados")
+                @Html.Hidden("tiposDeAsiento")
+                @Html.Hidden("eventoId", Model.Id)
+                <h3>@Model.Nombre </h3>
+                <p>Contacto: @Model.ContactoOrganizador</p>
+                <p>Fecha: @Model.Fecha</p>
+                <p>Hora: @Model.Hora</p>
+                <p>Boletos disponibles: @asientos</p>
+                <div class="form-group">
+                    <table class="table table-striped" id="tblTipoBoletos">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tipo de Boleto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Costo (Colones)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in boletos)
+                            {
+                                if (!item.Cortesia)
+                                {
+                                    <tr datarows tipoboletoid="@item.Id">
+                                        <td>@item.Nombre</td>
+                                        <td>
+                                            <input type="number" min="0" value="0" capacity class="form-control" placeholder="" tipoboletoId="@item.Id" precio="@item.Precio">
+                                        </td>
+                                        <td>
+                                            @item.Precio
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputSections">Selecciona tus asientos:</label>
+                    <div id="seat-map" class="seat-map">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnBuy">Comprar boletos</button>
+                @*<div id="redirectData" data-index-url="@Url.Action("Carrito", "Carrito")"></div>*@
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Página inicial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
+}
+@section Scripts{
+    <script src="~/js/Pages/Home/HomePage.js"></script>
+    <script src="~/js/ChatBot/ChatBot.js"></script>
+}
+<link rel="stylesheet" href="~/css/Home/Home.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/ChatBot/ChatBot.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
+<!--page title-->
+<div class="text-center" style="margin: 40px;">
+    <h1 class="display-4">SmartBit Eventos</h1>
+</div>
+
+<!--promotions section-->
+<div id="myGrid"></div>
+
+<!--Create event-->
+@*<div class="btn-container" style="margin-bottom: 5px;">
+    <button type="button" class="btn btn-primary" style="width: 100%;" id="btnCreate" asp-action="CreateEvent" asp-controller="Events">Crear un evento nuevo</button>
+</div>*@
+<div class="create text-center create-container">
+    <a class="btn btn-primary" style="width: 100%;" asp-area="" asp-controller="Events" asp-action="CreateEvent">Crear Evento</a>
+</div>
+<!-- CHATBOT -->
+<div class="chat-bar-collapsible">
+    <button id="chat-button" type="button" class="collapsible">
+        ChatBot
+        <i id="chat-icon" class="fa fa-fw fa-comments-o"></i>
+    </button>
+    <div class="content">
+        <div class="full-chat-block">
+            <!--contenedor del mensaje-->
+            <div class="outer-container">
+                <div class="chat-container">
+                    <!--msj-->
+                    <div id="chatbox">
+                        <h5 id="chat-time"></h5>
+                        <p id="botStarterMessage" class="botText"><span>Prueba usar el ChatBot</span></p>
+                    </div>
+                    <!--user input-->
+                    <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <input id="textInput" class="input-box" type="text" name="msg"
+                                   placeholder="Presiona 'ENTER' para envíar el mensaje">
+                            <p></p>
+                        </div>
+
+                        <div class="chat-bar-icons">
+                            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                               onclick="sendButton()"></i>
+                        </div>
+                    </div>
+                    <div id="chat-bar-bottom">
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

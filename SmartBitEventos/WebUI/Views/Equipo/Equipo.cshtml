@@ -1,0 +1,260 @@
+﻿@{
+    ViewBag.Title = "Equipos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/js/Equipo.js"></script>
+<head>
+    <title>Landing Page Equipo</title>
+    <link rel="stylesheet" href="~/css/LandingEquipo.css" asp-append-version="true" />
+</head>
+
+<body class="d-flex flex-column h-100" style="height: 3000px;">
+
+    <div class="container" style="height:5420px;">
+        <section id="hero" class="d-flex align-items-center bg-info" style="height: 800px; width: 1880px; margin-left: -290px;">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                        <div>
+                            <h1 class="font-weight-bold" style="font-size: 100px;">SmartBit</h1>
+                            <p style="font-size: 40px;">¡Codea para el futuro!</p>
+                        </div>
+                        <div>
+                            <a class="btn btn-primary btn-lg btn-block" asp-area="" asp-controller="Producto" asp-action="Producto">¡Conocer más!</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="~/Img/Logo2.png" class="" height="590px" alt="" class="d-inline-block align-text-top" />
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ======= misión y visión ======= -->
+        <div class="container" style="margin-top:200px; height: 600px;">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h1 class="font-weight-bold" style="font-size: 70px;">Nuestra misión</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <p style="font-size: 20px;">Nuestra misión es ser un equipo altamente competente, pero en constante mejora, de desarrolladores de software talentosos que están comprometidos a producir un software excelente y a fomentar un entorno de colaboración y confianza.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:200px;">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <p style="font-size: 20px;">Nuestra visión es ser líderes en el desarrollo de soluciones tecnológicas innovadoras, enfocadas en satisfacer las necesidades de nuestros clientes y transformar positivamente su entorno digital.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h1 class="font-weight-bold" style="font-size: 70px;">Nuestra visión</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ======= Equipo ======= -->
+        <section id="hero" class="d-flex align-items-center bg-info" style="height: 1000px; width: 1880px; margin-left: -290px; margin-top: 50px; margin-bottom: 50px;">
+            <div class="container align-items-center text-center bg-info">
+
+
+                <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+
+                    <h1 class="font-weight-bold" style="font-size: 70px;">Nuestro equipo</h1>
+                    <p style="font-size: 25px; margin-top: 15px;">Conformado por personas altamente capacitadas.</p>
+                </div>
+
+
+                <div class="row" style="margin-top: 40px; margin-left: 50px;">
+                    <div class="col-lg-6 bg-info">
+                        <div class="text-center d-flex align-items-center">
+                            <div class="pic"><img src="~/Img/rob.jpeg" style="border-radius: 70%;" height="240px" alt="" class="d-inline-block align-text-top" /></div>
+                            <div class="text-center">
+                                <h4 class="card-title">Robert Araya Carrillo</h4>
+                                <p></p>
+                                <p>Cargo del Miembro: Soporte</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 bg-info">
+                        <div class="text-center d-flex align-items-center">
+                            <div class="pic"><img src="~/Img/gab.jpeg" style="border-radius: 70%;" height="240px" alt="" class="d-inline-block align-text-top" /></div>
+                            <div class="text-center">
+                                <h4 class="card-title">Gabriel Guzmán Leiva</h4>
+                                <p></p>
+                                <p>Cargo del Miembro: Product Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px; margin-left: 50px;">
+                    <div class="col-lg-6 bg-info">
+                        <div class="text-center d-flex align-items-center">
+                            <div class="pic"><img src="~/Img/bray.jpeg" style="border-radius: 70%;" height="240px" alt="" class="d-inline-block align-text-top" /></div>
+                            <div class="text-center">
+                                <h4 class="card-title">Braylie Ureña Miranda</h4>
+                                <p></p>
+                                <p>Cargo del Miembro: Desarrollo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 bg-info">
+                        <div class="text-center d-flex align-items-center">
+                            <div class="pic"><img src="~/Img/jai.jpeg" style="border-radius: 70%;" height="240px" alt="" class="d-inline-block align-text-top" /></div>
+                            <div class="text-center">
+                                <h4 class="card-title">Jaikel Guzmán Carazo</h4>
+                                <p></p>
+                                <p>Cargo del Miembro: Calidad 1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px; margin-left: 50px;">
+                    <div class="col-lg-6 bg-info">
+                        <div class="text-center d-flex align-items-center">
+                            <div class="pic"><img src="~/Img/vic.jpeg" style="border-radius: 70%;" height="240px" alt="" class="d-inline-block align-text-top" /></div>
+                            <div class="text-center">
+                                <h4 class="card-title">Víctor Vargas Jiménez</h4>
+                                <p></p>
+                                <p>Cargo del Miembro: Calidad 2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 bg-info">
+                        <div class="text-center d-flex align-items-center">
+                            <div class="pic"><img src="~/Img/rafa.jpeg" style="border-radius: 70%;" height="240px" alt="" class="d-inline-block align-text-top" /></div>
+                            <div class="text-center">
+                                <h4 class="card-title">Rafael Guzmán Barboza</h4>
+                                <p></p>
+                                <p>Cargo del Miembro: Scrum Master</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= valores ======= -->
+        <div class="container" style="margin-top:100px; height: 2270px;">
+            <div class="col-lg-12 d-flex flex-column text-center justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+
+                <h1 class="font-weight-bold" style="font-size: 70px;">Nuestro valores</h1>
+                <p style="font-size: 25px; margin-top: 15px;"> </p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h1 class="font-weight-bold" style="font-size: 50px;">Liderazgo</h1>
+                        <p style="font-size: 20px;">Esta es una cualidad presente en todos los miembros del equipo, con la que se enfrentarán las diversas problemáticas que puedan surgir, enfocándose siempre en dar lo mejor de cada uno y demostrando con acciones la voluntad de impulsar al grupo en su conjunto.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <img src="~/Img/lid.png" class="" height="200px" alt="" class="d-inline-block align-text-top" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:100px;">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <img src="~/Img/coop.png" class="" height="200px" alt="" class="d-inline-block align-text-top" /></div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h1 class="font-weight-bold" style="font-size: 50px;">Cooperación</h1>
+                        <p style="font-size: 20px;">Mediante la cooperación se fomentará el respeto, apoyo y desarrollo profesional e individual de cada miembro del equipo, donde se creará un ambiente de trabajo armonioso que permitirá cumplir con éxito los objetivos propuestos en conjunto, ofreciendo un servicio de alta calidad con el producto presentado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:100px;">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h1 class="font-weight-bold" style="font-size: 50px;">Diversidad</h1>
+                        <p style="font-size: 20px;">Más que centrarse en las diferencias de pensamiento y criterio, la diversidad profesional y de vida de cada uno de los integrantes será esencial para el desarrollo del proyecto. Esto proporcionará una variedad de perspectivas y retroalimentación al definir los enfoques de cada etapa.</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <img src="~/Img/div.png" class="" height="200px" alt="" class="d-inline-block align-text-top" />                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:100px;">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <img src="~/Img/emp.png" class="" height="200px" alt="" class="d-inline-block align-text-top" />
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h1 class="font-weight-bold" style="font-size: 50px;">Empatía</h1>
+                        <p style="font-size: 20px;">Las circunstancias de vida y las capacidades de cada individuo son distintas. Tener empatía a la hora de interactuar, teniendo en cuenta esto al momento de ofrecer cooperación y explicar, así como comprender si hay un momento en el que se debe brindar un poco más de esfuerzo para respaldar a algún integrante que, por una razón justificable, no pueda presentar su aporte asignado a tiempo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:100px;">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h1 class="font-weight-bold" style="font-size: 50px;">Importancia</h1>
+                        <p style="font-size: 20px;">Los valores son fundamentales en una organización, ya que guían el comportamiento y la toma de decisiones, moldean la cultura empresarial, y construyen una reputación sólida. A través de ellos, se atrae y retiene talento, se establece una orientación estratégica coherente, y se fomenta la responsabilidad y rendición de cuentas.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <img src="~/Img/impor.png" class="" height="200px" alt="" class="d-inline-block align-text-top" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:100px;">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <img src="~/Img/dina.png" class="" height="200px" alt="" class="d-inline-block align-text-top" />
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h1 class="font-weight-bold" style="font-size: 50px;">Dinamismo</h1>
+                        <p style="font-size: 20px;">La lógica de scrum nos motiva a ser dinámicos a la hora de tomar decisiones y de afrontar los cambios que puedan surgir durante el proyecto, priorizando de manera asertiva las nuevas disposiciones que se deban tomar, sin atarse a una estructura o plan rígido que impida la flexibilidad que vaya a necesitar cada nueva iteración con base en su retroalimentación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="hero" class="d-flex align-items-center text-center bg-info" style="height: 420px; width: 1880px; margin-left: -290px; margin-bottom: 10px;">
+
+
+            <div class="container" style="padding-bottom: 60px;">
+                <div class="row">
+                    <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                        <h1 class="font-weight-bold" style="font-size: 100px;">SmartBit</h1>
+                        <p style="font-size: 40px;">Observa nuestros servicios</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                        <a class="btn btn-primary btn-lg btn-block" asp-area="" asp-controller="Producto" asp-action="Producto"> Conocer más </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+</body>

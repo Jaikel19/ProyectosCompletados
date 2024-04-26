@@ -1,0 +1,106 @@
+﻿@using DTO;
+@model List<DTO.Dashboard>
+@using static WebApp.Helpers.ControlExtensions
+@{
+    ViewBag.Title = "Gestor Dashboard";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+@section Scripts{
+    <script src="~/js/ControlActions.js"></script>
+}
+
+<!DOCTYPE html>
+<head>
+    <title> Dashboard / Gestor de Eventos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"></script>
+</head>
+<body>
+
+    <div class="container" style="height: 850px;">
+        <div class="row">
+            <div class="col-12">
+                <div class="pagetitle">
+                    <h1>Dashboard gestor de eventos</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+
+            @{
+                foreach (var dashboard in Model)
+                {
+                    int index = 1;
+                    string subAmountText = dashboard.IncrementoPorcentual > 0 ? "incremento" : "decremento";
+                    string incrementoText = dashboard.IncrementoPorcentual > 0 ? "+" : "";
+
+                    <div class="col-md-6">
+                        @Html.Raw(CtrlCard(
+                viewName: "GestorDashboard",
+                id: $"card{index}",
+                title: dashboard.Reporte,
+                amount: dashboard.Total.ToString(),
+                subAmount: $"{incrementoText}{dashboard.IncrementoPorcentual:F2}%",
+                subTitle: subAmountText,
+                dropDown: $"{(dashboard.Incremento > 0 ? $"{dashboard.Incremento} más este mes" : $"{dashboard.Incremento*-1} menos este mes")}",
+                icon: "bi bi-cart"))
+                    </div>
+                    index += 1;
+                }
+            }
+
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-12">
+
+                @Html.Raw(CtrlChart(viewName: "GestorDashboard", id: "lineChartContainer",
+                title: "Reportes",
+                xAxis: "['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']",
+                yAxis: "Incremento",
+                series: @GenerateSeriesData(Model)))
+
+            </div>
+
+            @functions {
+                public string GenerateSeriesData(IEnumerable<Dashboard> model)
+                {
+                    var seriesData = new List<object>();
+
+                    foreach (var dashboard in model)
+                    {
+                        var data = new List<int>
+                        {
+                        dashboard.Enero, dashboard.Febrero, dashboard.Marzo,
+                        dashboard.Abril, dashboard.Mayo, dashboard.Junio,
+                        dashboard.Julio, dashboard.Agosto, dashboard.Septiembre,
+                        dashboard.Octubre, dashboard.Noviembre, dashboard.Diciembre
+                        };
+
+                        var color = "#F64450";
+
+                        seriesData.Add(new
+                        {
+                            name = dashboard.Reporte,
+                            data = data,
+                            color = color
+                        });
+                    }
+
+                    var json = System.Text.Json.JsonSerializer.Serialize(seriesData);
+                    return json;
+                }
+            }
+
+
+        </div>
+
+    </div>
+
+</body>

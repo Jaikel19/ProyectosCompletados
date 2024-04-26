@@ -1,0 +1,401 @@
+﻿@model DTO.Evento
+
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+    var boletos = Model.TipoBoletoEventos;
+}
+
+@section Scripts{
+    <script src="~/js/Pages/Events/CreateEvent.js"></script>
+    <script src="~/js/Pages/Events/Seats.js"></script>
+    <script src="~/js/map/getlocation.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnlvyH0qGQWoCpeuYBIPM7jX_B9fbfNQk&callback=initMap" async defer></script>
+    <link rel="stylesheet" href="~/css/Event/CreateEvent.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}
+
+<!--Div para redirijir desde js-->
+<div id="redirectData" data-index-url="@Url.Action("EventList", "Events")"></div>
+
+<!--Form Init-->@*
+<div class="text-center">
+    <h1 class="display-4">Crear Evento</h1>
+</div>
+<div class="form-group">
+    <form id="frmEvents" asp-action="Event" asp-controller="Events" method="POST" enctype="multipart/form-data">
+        <fieldset>
+            <input type="hidden" name="TipoBoletosStr" id="tipoBoletos">
+            <input type="hidden" id="Capacidad" name="Capacidad" />
+            <input type="hidden" name="TipoBoletosStr" id="tipoBoletos" asp-for="TipoBoletosStr">
+
+            <legend>Creación de Eventos</legend>
+            <div class="form-group">
+                <label class="form-label mt-4" for="inputName">Nombre del Evento:</label>
+                <input type="text" class="form-control" placeholder="Mi evento" id="inputName" name="Nombre">
+                <label style="display: none; color: red;">*Debes ingresar un nombre válido.</label>
+            </div>
+            <div class="form-group">
+                <label for="inputDescription" class="form-label mt-4">Descripción del Evento:</label>
+                <textarea class="form-control" id="inputDescription" rows="3" name="Descripcion"></textarea>
+                <label style="display: none; color: red;">*Ingresa descripción del evento.</label>
+            </div>
+            <br />
+
+
+            <div class="form-group">
+                <label class="control-label">Cargar imagen del evento:</label>
+                <input type="file" class="form-control" id="EventoImagen" name="Imagen">
+                <label style="display: none; color: red;">*Debes seleccionar una imagen del evento.</label>
+            </div>
+            <div class="form-group">
+                <label class="form-label mt-4" for="inputSlogan">Slogan:</label>
+                <input type="text" class="form-control" placeholder="Mi slogan" id="inputSlogan" name="Slogan">
+                <label style="display: none; color: red;">*Debes ingresar un slogan.</label>
+            </div>
+            <div class="form-group">
+                <label for="modalidadSelect" class="form-label mt-4">Modalidad:</label>
+                <select class="form-select" id="modalidadSelect" name="Modalidad">
+                    <option value=""></option>
+                    <option>Presencial</option>
+                    <option>Virtual</option>
+                </select>
+                <label style="display: none; color: red;">*Debes elegir una modalidad.</label>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputMap">Mapa:</label>
+                <div class="form-group">
+                    <label class="form-label">Latitud</label>
+                    <input type="text" class="form-control" id="latitud" name="latitud" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Longitud</label>
+                    <input type="text" class="form-control" id="longitud" name="longitud" readonly>
+                    <label style="display: none; color: red;">*Debes seleccionar una dirección en el mapa.</label>
+                </div>
+                <div id="map" style="height: 400px; margin-top: 20px;"></div>
+            </div>
+            <div class="form-group">
+                <label class="form-label mt-4" for="txtDate">Fecha del Evento:</label>
+                <input type="date" class="form-control" id="txtDate" name="Fecha">
+                <label style="display: none; color: red;">*Debes seleccionar una fecha.</label>
+            </div>
+            <div class="form-group">
+                <label class="form-label mt-4" for="inputHour">Hora:</label>
+                <input type="time" class="form-control" id="inputHour" name="Hora">
+                <label style="display: none; color: red;">*Debes seleccionar una hora.</label>
+            </div>
+            <div class="form-group">
+                <label class="form-label mt-4" for="inputGestor">Teléfono del Organizador:</label>
+                <input type="number" class="form-control" placeholder="88888888" id="inputGestor" name="ContactoOrganizador">
+                <label style="display: none; color: red;">*El teléfono debe tener 8 dígitos.</label>
+            </div>
+            <div class="form-group">
+                <label for="inputRestrictions" class="form-label mt-4">Restricciones del Evento:</label>
+                <textarea class="form-control" id="inputRestrictions" rows="3" name="Restricciones"></textarea>
+                <label style="display: none; color: red;">*Ingresa restricciones en caso de no haber ingresado "N/A".</label>
+            </div>
+
+            <div class="form-group">
+                <label for="scenarioSelect" class="form-label mt-4">Tipos de Escenario:</label>
+                <select class="form-select" id="scenarioSelect" name="Escenario">
+                    <option value=""></option>
+                    <option>Cine</option>
+                    <option>Estadio</option>
+                    <option>Salón de Eventos</option>
+                    <option>Teatro</option>
+                </select>
+                <label style="display: none; color: red;">*Debes elegir una modalidad.</label>
+            </div>
+            <div class="form-group">
+                <label class="form-label mt-4" for="inputSections">Secciones:</label>
+                <div id="seat-map" class="seat-map">
+                </div>
+            </div>
+            <br />
+            <span>Capacidad total del escenario: <span id="capacidadTotal" name="Capacidad"></span></span>
+
+            <table class="table table-striped" id="tblTipoBoletos">
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo de Boleto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Costo (Colones)</th>
+                        <th scope="col">Cortesía</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in boletos)
+                    {
+                        <tr datarows tipoboletoid="@item.Id">
+                            <td>@item.Nombre</td>
+                            <td>
+                                <input type="number" min="0" value="0" capacity class="form-control" placeholder="">
+                            </td>
+                            <td>
+                                <input type="number" min="0" value="0" step="0.01" cost class="form-control" id="costo_@item.Id" placeholder="">
+                            </td>
+                            <td>
+                                <input type="checkbox" cortesia id="@item.Id">
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            <div class="btn-container">
+                <button type="button" class="btn btn-primary" id="btnCreate" asp-action="Event" asp-controller="Events">Crear Evento</button>
+                <a class="btn btn-primary" role="button" asp-action="Index" asp-controller="Home">Regresar a página principal</a>
+            </div>
+        </fieldset>
+    </form>
+</div>*@
+
+
+<body>
+    <div class="container text-center">
+        <h1 class="display-4">Crear Evento</h1>
+    </div>
+
+    <div class="row" style="width:1450px; margin-top:30px;">
+        <div class="col">
+            <button id="boton1" class="btn btn-primary" style="width: 100%;">Paso 1</button>
+        </div>
+        <div class="col">
+            <button id="boton2" class="btn btn-primary" style="width: 100%;">Paso 2</button>
+        </div>
+        <div class="col">
+            <button id="boton3" class="btn btn-primary" style="width: 100%;">Paso 3</button>
+        </div>
+        <div class="col">
+            <button id="boton4" class="btn btn-primary" style="width: 100%;">Paso 4</button>
+        </div>
+        <div class="col">
+            <button id="boton5" class="btn btn-primary" style="width: 100%;">Paso 5</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <form id="frmEvents" asp-action="Event" asp-controller="Events" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <div id="informacion1" class="d-none mt-3" style="height: 650px;">
+                    <input type="hidden" name="TipoBoletosStr" id="tipoBoletos">
+                    <input type="hidden" id="Capacidad" name="Capacidad" />
+                    <input type="hidden" name="TipoBoletosStr" id="tipoBoletos" asp-for="TipoBoletosStr">
+
+                    <legend>Creación de Eventos</legend>
+                    <div class="form-group">
+                        <label class="form-label mt-4" for="inputName">Nombre del Evento:</label>
+                        <input type="text" class="form-control" placeholder="Mi evento" id="inputName" name="Nombre">
+                        <label style="display: none; color: red;">*Debes ingresar un nombre válido.</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription" class="form-label mt-4">Descripción del Evento:</label>
+                        <textarea class="form-control" id="inputDescription" rows="3" name="Descripcion"></textarea>
+                        <label style="display: none; color: red;">*Ingresa descripción del evento.</label>
+                    </div>
+                    <br />
+
+
+                    <div class="form-group">
+                        <label class="control-label">Cargar imagen del evento:</label>
+                        <input type="file" class="form-control" id="EventoImagen" name="Imagen">
+                        <label style="display: none; color: red;">*Debes seleccionar una imagen del evento.</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4" for="inputSlogan">Slogan:</label>
+                        <input type="text" class="form-control" placeholder="Mi slogan" id="inputSlogan" name="Slogan">
+                        <label style="display: none; color: red;">*Debes ingresar un slogan.</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalidadSelect" class="form-label mt-4">Modalidad:</label>
+                        <select class="form-select" id="modalidadSelect" name="Modalidad">
+                            <option value=""></option>
+                            <option>Presencial</option>
+                            <option>Virtual</option>
+                        </select>
+                        <label style="display: none; color: red;">*Debes elegir una modalidad.</label>
+                    </div>
+                </div>
+
+                <div id="informacion2" class="d-none mt-3" style="min-height: 650px;">
+                    <div class="form-group">
+                        <label class="col-form-label mt-4" for="inputMap">Mapa:</label>
+                        <div class="form-group">
+                            <label class="form-label">Latitud</label>
+                            <input type="text" class="form-control" id="latitud" name="latitud" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Longitud</label>
+                            <input type="text" class="form-control" id="longitud" name="longitud" readonly>
+                            <label style="display: none; color: red;">*Debes seleccionar una dirección en el mapa.</label>
+                        </div>
+                        <div id="map" style="height: 400px; margin-top: 20px;"></div>
+                    </div>
+                </div>
+
+                <div id="informacion3" class="d-none mt-3" style="min-height: 650px;">
+                    <div class="form-group">
+                        <label class="form-label mt-4" for="txtDate">Fecha del Evento:</label>
+                        <input type="date" class="form-control" id="txtDate" name="Fecha">
+                        <label style="display: none; color: red;">*Debes seleccionar una fecha.</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4" for="inputHour">Hora:</label>
+                        <input type="time" class="form-control" id="inputHour" name="Hora">
+                        <label style="display: none; color: red;">*Debes seleccionar una hora.</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4" for="inputGestor">Teléfono del Organizador:</label>
+                        <input type="number" class="form-control" placeholder="88888888" id="inputGestor" name="ContactoOrganizador">
+                        <label style="display: none; color: red;">*El teléfono debe tener 8 dígitos.</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputRestrictions" class="form-label mt-4">Restricciones del Evento:</label>
+                        <textarea class="form-control" id="inputRestrictions" rows="3" name="Restricciones"></textarea>
+                        <label style="display: none; color: red;">*Ingresa restricciones en caso de no haber ingresado "N/A".</label>
+                    </div>
+                </div>
+
+                <div id="informacion4" class="d-none mt-3" style="min-height: 650px;">
+                    <div class="form-group">
+                        <label for="scenarioSelect" class="form-label mt-4">Tipos de Escenario:</label>
+                        <select class="form-select" id="scenarioSelect" name="Escenario">
+                            <option value=""></option>
+                            <option>Cine</option>
+                            <option>Estadio</option>
+                            <option>Salón de Eventos</option>
+                            <option>Teatro</option>
+                        </select>
+                        <label style="display: none; color: red;">*Debes elegir una modalidad.</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4" for="inputSections">Secciones:</label>
+                        <div id="seat-map" class="seat-map">
+                        </div>
+                    </div>
+                    <br />
+                    <span>Capacidad total del escenario: <span id="capacidadTotal" name="Capacidad"></span></span>
+                    <br />
+                </div>
+
+                <div id="informacion5" class="d-none mt-3" style="height: 650px;">
+
+                    <table class="table table-striped" id="tblTipoBoletos">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tipo de Boleto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Costo (Colones)</th>
+                                <th scope="col">Cortesía</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in boletos)
+                            {
+                                <tr datarows tipoboletoid="@item.Id">
+                                    <td>@item.Nombre</td>
+                                    <td>
+                                        <input type="number" min="0" value="0" capacity class="form-control" placeholder="">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" value="0" step="0.01" cost class="form-control" id="costo_@item.Id" placeholder="">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" cortesia id="@item.Id">
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
+
+                <div class="btn-container" style="margin-bottom: 5px;">
+                    <button type="button" class="btn btn-primary" style="width: 100%;" id="btnCreate" asp-action="Event" asp-controller="Events">Crear Evento</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Mostrar información 1 por defecto
+            $("#informacion1").removeClass("d-none");
+            $("#informacion1").addClass("d-block");
+
+            $("#boton1").click(function () {
+                $("#informacion1").removeClass("d-none");
+                $("#informacion1").addClass("d-block");
+                $("#informacion2").removeClass("d-block");
+                $("#informacion2").addClass("d-none");
+                $("#informacion3").removeClass("d-block");
+                $("#informacion3").addClass("d-none");
+                $("#informacion4").removeClass("d-block");
+                $("#informacion4").addClass("d-none");
+                $("#informacion5").removeClass("d-block");
+                $("#informacion5").addClass("d-none");
+            });
+
+            $("#boton2").click(function () {
+                $("#informacion1").removeClass("d-block");
+                $("#informacion1").addClass("d-none");
+                $("#informacion2").removeClass("d-none");
+                $("#informacion2").addClass("d-block");
+                $("#informacion3").removeClass("d-block");
+                $("#informacion3").addClass("d-none");
+                $("#informacion4").removeClass("d-block");
+                $("#informacion4").addClass("d-none");
+                $("#informacion5").removeClass("d-block");
+                $("#informacion5").addClass("d-none");
+            });
+
+            $("#boton3").click(function () {
+                $("#informacion1").removeClass("d-block");
+                $("#informacion1").addClass("d-none");
+                $("#informacion2").removeClass("d-block");
+                $("#informacion2").addClass("d-none");
+                $("#informacion3").removeClass("d-none");
+                $("#informacion3").addClass("d-block");
+                $("#informacion4").removeClass("d-block");
+                $("#informacion4").addClass("d-none");
+                $("#informacion5").removeClass("d-block");
+                $("#informacion5").addClass("d-none");
+            });
+
+            $("#boton4").click(function () {
+                $("#informacion1").removeClass("d-block");
+                $("#informacion1").addClass("d-none");
+                $("#informacion2").removeClass("d-block");
+                $("#informacion2").addClass("d-none");
+                $("#informacion3").removeClass("d-block");
+                $("#informacion3").addClass("d-none");
+                $("#informacion4").removeClass("d-none");
+                $("#informacion4").addClass("d-block");
+                $("#informacion5").removeClass("d-block");
+                $("#informacion5").addClass("d-none");
+            });
+
+            $("#boton5").click(function () {
+                $("#informacion1").removeClass("d-block");
+                $("#informacion1").addClass("d-none");
+                $("#informacion2").removeClass("d-block");
+                $("#informacion2").addClass("d-none");
+                $("#informacion3").removeClass("d-block");
+                $("#informacion3").addClass("d-none");
+                $("#informacion4").removeClass("d-block");
+                $("#informacion4").addClass("d-none");
+                $("#informacion5").removeClass("d-none");
+                $("#informacion5").addClass("d-block");
+            });
+        });
+    </script>
+</body>

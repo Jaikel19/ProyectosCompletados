@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Eventos registrados";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <script src="~/js/Reportes/Administrador/LoggedEvents.js"></script>
+}
+}
+<style>
+    .ag-header {
+        background-color: #4FC9DA;
+    }
+</style>
+<div class="container text-center">
+    <div class="container text-center">
+        <h1 class="display-4">Eventos registrados</h1>
+        <br />
+    <!--AG GRID-->
+        <center>
+        <div id="myGrid" style="height: 650px; width:1500px;" class="ag-theme-alpine"></div>
+        </center>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+﻿@model IList<DTO.Evento>
+
+<table class="table table-striped" id="tblTipoBoletos">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Modalidad</th>
+            <th scope="col">Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr datarows tipoboletoid="@item.Id" boletoNombre="@item.Nombre">
+                <td>@item.Nombre</td>
+                <td>@item.Descripcion</td>
+                <td>@item.Modalidad</td>
+                <td>@item.Fecha</td>
+            </tr>
+        }
+    </tbody>
+</table>

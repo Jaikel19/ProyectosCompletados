@@ -1,0 +1,70 @@
+﻿@model DTO.Usuario
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    label {
+        font-weight: bold;
+    }
+    
+</style>
+<center>
+    <div  style="padding-top: 90px; ">
+        <center>
+            <div class="row justify-content-center mt-5" style="height: 538px; padding-right: 1500px">
+                <div class="col-md-6 col-lg-4">
+                    <center>
+                    <div class="card" style="width: 1300px;   border: 0px solid rgba(0,0,0,1); background-color: #F0EAE5; height: 700px">
+                        <center>
+                            <div class="card-body" style="width: 50%; height: 50%; margin-top:90px">
+                                <h2 class="card-title text-center">Inicia sesión</h2>
+                                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> 
+                                <script src="~/js/pages/login/loginvalidation.js"></script>
+
+                                @if (ViewBag.Message != null)
+                                {
+                                    <script>
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Error',
+                                            text: 'Usuario o Contraseña inválido',
+                                            confirmButtonText: 'Aceptar'
+                                        });
+                                    </script>
+                                }
+
+                             @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "loginForm" })) 
+            {
+                                    <div class="form-group" style=" padding-bottom: 19px">
+                    @Html.LabelFor(u => u.Email, new { @class = "form-label" })
+                    @Html.TextBoxFor(u => u.Email, new { @class = "form-control", id = "emailInput" }) 
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(u => u.Password, new { @class = "form-label" })
+                    @Html.PasswordFor(u => u.Password, new { @class = "form-control", id = "passwordInput" }) 
+                </div>
+                <br>
+                <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block" id="loginButton">Iniciar Sesión</button>
+                                        <a class="btn btn-secondary btn-block" asp-area="" asp-controller="Login" asp-action="Cancel">Cancelar</a>
+                </div>
+            }
+                                <div class="text-center" style="padding-top: 19px">
+                                    <a onclick="location.href='@Url.Action("ForgotPassword", "Login")'" class="btn btn-link">Olvidé mi contraseña</a>
+                                </div>
+                                <br>
+                                <div class="text-center" style=" padding-top: 19px">
+                                    <p>¿No tienes cuenta?</p>
+                                    <a onclick="location.href='@Url.Action("Register", "User")'" class="btn btn-link">Regístrate con nosotros</a>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
+                    </center>
+                </div>
+            </div>
+        </center>
+    </div>
+</center>

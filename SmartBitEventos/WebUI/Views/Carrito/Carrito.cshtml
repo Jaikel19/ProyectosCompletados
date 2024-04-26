@@ -1,0 +1,42 @@
+﻿@model List<AppLogic.DetallesBoleto>
+
+@{
+    ViewBag.Title = "Carritos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var detalle = Model.FirstOrDefault();
+    double total = Model.Sum(x => x.Precio);
+}
+
+@section Scripts{
+    <script src="~/js/pages/compra/Carrito.js"></script>
+    <link href="~/css/carrito/carrito.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+}
+<div id="redirectData" data-index-url="@Url.Action("Details", "Compra")"></div>
+
+<!--titles-->
+<center> <h1>Carrito de compras</h1></center>
+<h2>Detalles del evento a comprar:</h2>
+<p>Evento: @detalle.Nombre</p>
+<p>Fecha: @detalle.Fecha</p>
+<p>Hora: @detalle.Hora</p>
+<div class="form-group buy-container">
+    <div class="form-group tickets">
+        <h3>Boletos Seleccionados:</h3>
+        <h6>Tipo de Boletos:</h6>
+        <p>General:<span id="general"> 0</span></p>
+        <p>Estudiantes:<span id="estudiantes"> 0</span></p>
+        <p>Adulto mayor:<span id="adulto-mayor"> 0</span></p>
+        <p id="total"></p>
+    </div>
+    <div class="form-group tickets">
+        <h3>Método de pago:</h3>
+        <img src="/img/PayPal-Logo-PNG.png" alt="Logo de Paypal" id="paypal-img">
+    </div>
+</div>
+<!--botones-->
+<div class="form-group">
+    <a class="btn btn-primary boton" id="btn-comprar" role="button">Comprar boletos</a>
+    <a class="btn btn-primary boton" role="button" asp-controller="Events" asp-action="EventList">Regresar</a>
+</div>

@@ -1,0 +1,25 @@
+﻿@model DTO.Usuario
+@{
+    ViewBag.Title = "Reporte de comprador";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+@section Scripts{
+    <script src="~/js/Reportes/Comprador/ReporteComprador.js"></script>
+}
+<style>
+    .ag-header {
+        background-color: #4FC9DA;
+    }
+</style>
+<!--FORM INIT-->
+<div class="container text-center" >
+    <div class="container text-center">
+        <h1 class="display-4">Reporte de eventos</h1>
+    </div>
+    <br />
+    <!--AG GRID-->
+    <center>
+        <div id="myGrid" data-userid="@Model.Id" style="height: 650px; width:1500px" class="ag-theme-alpine container"></div>
+    </center>
+
+</div>

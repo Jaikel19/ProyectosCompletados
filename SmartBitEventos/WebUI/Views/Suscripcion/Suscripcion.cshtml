@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Suscripción";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+
+    <link rel="stylesheet" href="~/Content/Suscripciones.css">
+    <script src="~/Scripts/Views/Suscripcion.js"></script>
+</head>
+
+<div>
+    <center>
+        <div>
+            <h1 class="titulo-licitacion">Suscripciones Posibles</h1>
+            <p>
+                Nuestro servicio de suscripciones se divide en tres tipos diferentes de suscripciones. Cada una te permitirá tener experiencias distintas. En cada unade las suscripciones se te mostrarán los detalles respectivos de cada uno de nuestros servicios.
+            </p>
+        </div>
+    </center>
+    <main>
+        <center>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Suscripción gratis</h2>
+                    <section class="col-md-04" aria-labelledby="gettingStartedTitle">
+                        <section aria-labelledby="gettingStartedTitle">
+                            <div class="accordion" id="accordionExample1">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1">
+                                            Detalles
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne1" data-bs-parent="#accordionExample1" style="">
+                                        <div class="accordion-body">
+                                            <p>Esta suscripción cuenta con lo siguiente:</p>
+                                            <p>-El usuario va a poder usar la aplicación con normalidad.</p>
+                                            <p>-Únicamente tendrá restricciones de venta de boletos por evento.</p>
+                                            <p>-Esta restricción llega a un límite de 10 boletos.</p>
+                                            <p>-Para adquirir más boletos, puedes comprar la "Suscripción superior" o los "Eventos ilimitados".</p>
+                                            <p>-Esta suscripción es completamente gratuita y no tiene costo alguno.</p>
+                                            <img src="~/Img/free.png" alt="Imagen de suscripcion sin paga" class="center-image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 5%" class="d-grid gap-2">
+                                <a class="btn btn-info btn-primary" style="background-color: #012970; color:white; border-color:#012970;" asp-area="" asp-controller="User" asp-action="Register">Ver más</a>
+                            </div>
+
+                        </section>
+                    </section>
+
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <h2>Suscripción superior</h2>
+                    <section class="col-md-04" aria-labelledby="gettingStartedTitle">
+                        <section aria-labelledby="gettingStartedTitle">
+                            <div class="accordion" id="accordionExample2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2">
+                                            Detalles
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseOne2" class="accordion-collapse collapse" aria-labelledby="headingOne2" data-bs-parent="#accordionExample2" style="">
+                                        <div class="accordion-body">
+                                            <p>Esta suscripción cuenta con lo siguiente:</p>
+                                            <p>-El usuario va a poder usar la aplicación con normalidad.</p>
+                                            <p>-Únicamente tendrá restricciones en la venta de boletos por evento.</p>
+                                            <p>-Esta restricción llega a un límite de 10 a 1000 boletos.</p>
+                                            <p>-Para adquirir más boletos, puedes comprar la siguiente suscripción: "Eventos ilimitados".</p>
+                                            <p>-La suscripción superior es opcional.</p>
+                                            <p>-Se debe pagar por PayPal.</p>
+                                            <p>-El pago se realiza mensualmente.</p>
+                                            <p>-Esta suscripción tiene un precio de 10 dólares al mes.</p>
+                                            <img src="~/Img/pagar.png" alt="Imagen de suscripcion superior" class="center-image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 5%" class="d-grid gap-2">
+                                <a class="btn btn-info btn-primary" style="background-color: #012970; color:white; border-color:#012970;" asp-area="" asp-controller="User" asp-action="Register">Ver más</a>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+                <center>
+                    <div class="col-md-6" style="height: 800px;" >
+                        <h2>Eventos ilimitados</h2>
+                        <section class="col-md-04" aria-labelledby="gettingStartedTitle">
+                            <section aria-labelledby="gettingStartedTitle">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                La más vendida y recomendada
+                                            </button>
+                                        </h2>
+
+                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="max-width: 28rem;">
+                                            <div class="accordion-body">
+                                                <p>Esta suscripción cuenta con lo siguiente:</p>
+                                                <p>-El usuario va a poder usar la aplicación con normalidad.</p>
+                                                <p>-Esta suscripción no cuenta con límites de boletos.</p>
+                                                <p>-La suscripción de rangos ilimitados es opcional.</p>
+                                                <p>-Se debe pagar por PayPal.</p>
+                                                <p>-El pago se realiza mensualmente.</p>
+                                                <p>-Esta suscripción tiene un precio de 20 dólares al mes.</p>
+                                                <img src="~/img/ilimitado.png" alt="Imagen de eventos ilimitados" center-image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 5%" class="d-grid gap-2">
+                                    <a class="btn btn-info btn-primary" style="background-color: #012970; color:white; border-color:#012970;" asp-area="" asp-controller="User" asp-action="Register">Ver más</a>
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                </center>
+            </div>
+        </center>
+    </main>
+</div>

@@ -1,0 +1,71 @@
+﻿@model DTO.Usuario
+@{
+    ViewData["Title"] = "Mi Perfil";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+@section Scripts {
+    <script src="~/js/pages/user/UpdateUserValidation.js"></script>
+    <link rel="stylesheet" href="~/css/Profile/Profile.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/map/getlocation.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnlvyH0qGQWoCpeuYBIPM7jX_B9fbfNQk&callback=initMap" async defer></script>
+}
+
+<h2 class="card-title text-center">Editar Perfil</h2>
+<div class="edit-profile-form">
+    <form id="UpdateUser" asp-action="UpdateUser" asp-controller="User" method="POST">
+        <fieldset>
+        <div class="form-group">
+            <label class="form-label" for="Nombre">Nombre</label>
+            <input type="text" id="Nombre" name="Nombre" value="@Model.Nombre" class="form-control">
+            <label style="display: none; color: red;">*Debes indicar tu nombre en un formato válido.</label>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="Apellido">Apellido</label>
+            <input type="text" id="Apellido" name="Apellido" value="@Model.Apellido" class="form-control">
+            <label style="display: none; color: red;">*Debes indicar tu apellido en un formato válido.</label>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="Email">Email</label>
+            <input type="email" id="Email" name="Email" value="@Model.Email" class="form-control">
+            <label style="display: none; color: red;">*Debes seguir un formato válido de email, por ejemplo: usuario@dominio.com</label>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="Telefono">Teléfono</label>
+            <input type="tel" id="Telefono" name="Telefono" value="@Model.Telefono" class="form-control">
+            <label style="display: none; color: red;">*El telefono debe contener 8 dígitos.</label>
+        </div>
+            <div class="form-group">
+                <label class="form-label">Cédula:</label>
+                <input type="text" value="@Model.Cedula" class="form-control" id="Cedula" name="Cedula">
+                <label style="display: none; color: red;">*Debes indicar tu número de cédula en formato de 10 dígitos.</label>
+            </div>
+            <label class="form-label">Dirección:</label>
+
+            <div class="form-group">
+                <label class="form-label">Latitud:</label>
+                <input type="text" value="@Model.Latitud" class="form-control" id="latitud" name="latitud" readonly>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Longitud:</label>
+                <input type="text" value="@Model.Longitud" class="form-control" id="longitud" name="longitud" readonly>
+                <label style="display: none; color: red;">*Debes seleccionar una ubicación del evento en el mapa.</label>
+            </div>
+
+            <label class="col-form-label mt-4" for="inputMap">Mapa:</label>
+
+            <div id="map" style="height: 200px; margin-top: 20px;"></div>
+            <br />
+        </fieldset>
+        <div class="btn-container" style="margin-top: 40px; width: 100%; display: flex; justify-content: space-around;">
+            <button class="btn btn-primary" id="btnCreate" asp-action="UpdateUser" asp-controller="User">Guardar Cambios</button>
+            <button class="btn btn-secondary btn-block" asp-area="" asp-controller="User" asp-action="Profile">Volver a Perfil</button>
+        </div>
+
+    </form>
+
+</div>

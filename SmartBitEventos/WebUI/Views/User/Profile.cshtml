@@ -1,0 +1,81 @@
+﻿@model DTO.Usuario
+@{
+    ViewData["Title"] = "Mi Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    <link rel="stylesheet" href="~/css/Profile/Profile.css" asp-append-version="true" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnlvyH0qGQWoCpeuYBIPM7jX_B9fbfNQk&callback=initMap" async defer></script>
+    <script src="~/js/map/getlocation.js"></script>
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 " style="width: 100%">
+            <div class="card" style="background-color: #F0EAE5 ">
+                <div class="card-body">
+                    <div class="col-lg-12">
+                        <h2 class="card-title text-center">Mi Perfil</h2>
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="form-label">Nombre</label>
+                                <span class="form-info">@Model.Nombre</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Apellido</label>
+                                <span class="form-info">@Model.Apellido</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <span class="form-info">@Model.Email</span>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Teléfono</label>
+                                <span class="form-info">@Model.Telefono</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Cédula</label>
+                                <span class="form-info">@Model.Cedula</span>
+                            </div>
+                        </div>
+                     </div>
+                    
+                    <label class="form-label">Su Dirección Actual:</label>
+
+                    <div class="form-group">
+                        <label class="form-label">Latitud:</label>
+                        <input type="text" value="@Model.Latitud" class="form-control" id="latitud" name="latitud" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Longitud:</label>
+                        <input type="text" value="@Model.Longitud" class="form-control" id="longitud" name="longitud" readonly>
+                    </div>
+
+                    <label class="col-form-label mt-4" for="inputMap">Mapa:</label>
+
+                    <div id="map" style="height: 200px; margin-top: 20px;"></div>
+                    <br />
+
+                    <div class="form-group text-center " style="background-color: #4FC9DA ">
+                        <a href="@Url.Action("ProfileEdit", "User")" class="edit-link btn btn-sm">Editar Perfil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

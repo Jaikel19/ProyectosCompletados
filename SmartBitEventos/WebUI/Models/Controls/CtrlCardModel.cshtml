@@ -1,0 +1,34 @@
+﻿@model WebApp.Models.Controls.CtrlCardModel
+
+<div class="card-body" style="height: 180px; border-radius: 5px; box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); padding:20px 20px 20px 20px; background-color:#FFFFFF">
+
+
+
+    <div class="ps-3 d-flex align-items-center" style="display:flex; justify-content:space-between">
+        <h5 class="card-title" style="color: #4FC9DA; font-size: 22px; font-weight: 700; padding: 0px 0 10px 0;">
+            @Model.Title
+            <span style="color: #899bbd; font-size: 16px; font-weight: 400">| @Model.DropDown</span>
+        </h5>
+
+        <div class="filter" style="padding: 0px 0 10px 0;">
+            <a class="icon show" href="#" data-bs-toggle="dropdown" aria-expanded="true"><i class="bi bi-box-arrow-up-right"></i></a>
+       
+        </div>
+    </div>
+
+
+    <div class="d-flex align-items-center">
+
+        <div class="d-flex justify-content-center align-items-center rounded-circle" style="width: 60px; height: 60px; background-color:rgb(215, 218, 239);">
+            <i class="@Model.Icon" style="color: #4FC9DA; font-size:30px;"></i>
+        </div>
+
+        <div class="ps-3">
+            <h6 style="color: #4FC9DA; font-size: 28px; font-weight:700">@Model.Amount</h6>
+            <span class="text-success small pt-1 fw-bold" style="font-size: 16px; font-weight:400">@Model.SubAmount</span>
+            <span class="text-muted small pt-2 ps-1" style="color: #899bbd; font-size: 16px; font-weight:400">@Model.SubTitle</span>
+        </div>
+
+    </div>
+
+</div>

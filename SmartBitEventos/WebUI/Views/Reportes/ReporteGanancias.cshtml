@@ -1,0 +1,32 @@
+﻿@model DTO.Usuario
+@{
+    ViewBag.Title = "Reporte ganancias";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+@section Scripts{
+    <script src="~/js/Utilities/pdfmake.js"></script>
+    <script src="~/js/Utilities/vfs_fonts.js"></script>
+    <script src="~/js/Utilities/PdfGenerator.js"></script>
+    <script src="~/js/Reportes/Gestor/ReporteGanancias.js"></script>
+}
+<style>
+    .ag-header {
+        background-color: #4FC9DA;
+    }
+</style>
+<!--FORM INIT-->
+<div class="container text-center">
+    <div class="container text-center">
+        <h1 class="display-4">Reporte de ganancias</h1>
+    </div>
+    <br />
+    <!--AG GRID-->
+    <center>
+        <div id="myGrid" data-userid="@Model.Id" style="height: 650px; width:1500px;" class="ag-theme-alpine"></div>
+    </center>
+    <div style="margin-top: 40px; margin-left: 21px;" class="container">
+        <button class="btn btn-primary" id="btn-report" style="width: 100%;">Descargar reporte</button>
+    </div>
+</div>
+
+

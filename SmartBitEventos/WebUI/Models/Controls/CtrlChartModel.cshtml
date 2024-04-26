@@ -1,0 +1,61 @@
+﻿@model WebApp.Models.Controls.CtrlChartModel
+
+<style>
+    svg.highcharts-root {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 2rem !important;
+    }
+</style>
+
+<div class="card-body" style="border-radius: 5px; box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); padding:20px 20px 20px 20px; background-color:#FFFFFF">
+    <div class="ps-3 d-flex align-items-center" style="display:flex; justify-content:space-between">
+        <h5 class="card-title" style="color: #F64450; font-size: 20px; font-weight: 700; padding: 0px 0 10px 0;">
+            @Model.Title
+            <span style="color: #899bbd; font-size: 20px; font-weight: 400">| Anual</span>
+        </h5>
+
+        <div class="filter" style="padding: 0px 0 10px 0;">
+            <a class="icon show" href="#" data-bs-toggle="dropdown" aria-expanded="true" style="font-size:20px;"><i class="bi bi-box-arrow-up-right"></i></a>
+
+        </div>
+    </div>
+    <div id="@Model.Id" style="margin-top:10px"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const options = {
+
+                accessibility: {
+                    enabled: false
+                },
+                chart: {
+                    type: 'line'
+                }, title: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: JSON.parse('@Model.XAxis'.replace(/&#x27;/g, '"'))
+                },
+                yAxis: {
+                    title: {
+                        text: '@Model.YAxis'
+                    } 
+                },
+                series: eval('@Model.Series'.replace(/&quot;/g, '"'))
+            };
+
+            const chart = Highcharts.chart(@Model.Id, options);
+
+
+        });
+    </script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"></script>
+
+</div>
+
+

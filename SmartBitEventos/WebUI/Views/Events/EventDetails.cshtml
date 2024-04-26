@@ -1,0 +1,66 @@
+﻿@model DTO.Evento
+
+@{
+    ViewBag.Title = "Detalles evento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string asientos = Newtonsoft.Json.JsonConvert.SerializeObject(Model.EventoAsientos);
+    bool usuariologueado = ViewBag.UsuarioLogueado;
+    var asientosTomados = Model.EventoAsientos.Count();
+    int asientosDisponibles = Model.Capacidad - asientosTomados;
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <script src="~/js/Pages/Events/EventList.js"></script>
+    <link rel="stylesheet" href="~/css/Event/EventList.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Event/Seats.css" asp-append-version="true" />
+}
+
+<div class="form-group">
+    <div class="text-center">
+        <h1 class="display-4">Detalles del evento</h1>
+    </div>
+    <hr />
+    <div class="form-group">
+        <div style="width: 70%; float:left">
+            @Html.Hidden("capacidad", Model.Capacidad)
+            @Html.Hidden("eventoAsientos", asientos)
+            <h3>@Model.Nombre</h3>
+            <p>Contacto: @Model.ContactoOrganizador</p>
+            <p>Fecha: @Model.Fecha</p>
+            <p>Hora: @Model.Hora</p>
+            <p>Slogan: @Model.Slogan</p>
+            <p>Descripción: @Model.Descripcion</p>
+            <p>Modalidad: @Model.Modalidad</p>
+
+            <p>Capacidad Total: @Model.Capacidad</p>
+            <p>Boletos disponibles: @asientosDisponibles</p>
+        </div>
+
+        <div style="width: 30%; float:right">
+            <a class="img-container">
+                <img src="@Model.EventoImagen" alt="Image">
+            </a>
+        </div>
+    </div>
+    <hr />
+    @if (!usuariologueado)
+    {
+        <div class="form-group">
+            <p>Para poder adquirir los boletos, por favor inicie sesión o regístrese. Click <a asp-controller="Login" asp-action="Index">aquí.</a></p>
+            
+        </div>
+    }
+    <div class="form-group">
+        @if (usuariologueado)
+        {
+            <button type="button" class="btn btn-primary" id="compraBoletos">Comprar boletos</button>
+        }
+        <button class="btn btn-secondary" role="button" asp-action="Index" asp-controller="Home">Regresar a página principal</button>
+    </div>
+
+    <div>
+        @Html.Partial("Partials/CompraBoletos.cshtml", Model)
+    </div>
+</div>
+

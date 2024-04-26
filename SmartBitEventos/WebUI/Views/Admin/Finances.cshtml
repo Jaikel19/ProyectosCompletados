@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Configuración de carritos";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+@section Scripts{
+    <script src="~/js/Admin/Finances.js"></script>
+}
+<style>
+    .ag-header {
+        background-color: #4FC9DA;
+    }
+</style>
+<div class="container mt-5" style="height: 460px;">
+    <h1>Configuración de membresías</h1>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Membresía</th>
+                            <th>Precio en colones</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Superior</td>
+                            <td><input type="number" min="0" class="form-control precio" value="5000" id="inputSuperior"></td>
+                            <th> <button class="btn btn-primary" id="editSuperior">Cambiar</button> </th>
+                        </tr>
+                        <tr>
+                            <td>Infinito</td>
+                            <td><input type="number" min="0" class="form-control precio" value="15000" id="inputInfinito"></td>
+                            <th> <button class="btn btn-primary" id="editInfinito">Cambiar</button> </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Porcentaje de ganancias por comisión (%)</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" min="0" max="100" class="form-control porcentaje" value="10" id="inputGanancias"></td>
+                            <th> <button class="btn btn-primary" id="editGanancias">Cambiar</button> </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

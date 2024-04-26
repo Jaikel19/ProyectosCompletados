@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Compra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+    <script src="~/js/Pages/Compra/Details.js"></script>
+    <link href="~/css/Compra/Details.css" rel="stylesheet" />
+}
+<!--Div para redirijir desde js-->
+<div id="redirectData" data-index-url="@Url.Action("Index", "Home")"></div>
+
+    <h1 class="display-4 title">Detalles de la compra</h1>
+    <div class="qrs-container">
+        <div id="preQR">
+        </div>
+        <div id="QRContent">
+        </div>
+    </div>
+    <p>Te enviaremos el boleto a tu correo electrónico, que incluye un código QR.</p>
+    <div class="form-group">
+        <div>
+        <strong><label for="txtEmail">Email:</label></strong>
+        <input id="txtEmail" type="email" class="form-control" />
+        </div>
+        <div>
+        <strong>
+            <label for="txtPhone">Teléfono:</label> </strong>
+            <input id="txtPhone" type="number" class="form-control" />
+        </div>
+    </div>
+    <br />
+<button class="btn btn-primary" id="btnEnviarBoleto">Enviar boleto</button>
+

@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Administrar Usuarios";
+    Layout = "~/Views/Shared/_LayoutS.cshtml";
+}
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <script src="~/js/Admin/UserList.js"></script>
+}
+<head>
+    <title>Adminstrar Usuarios</title>
+    <style>
+        .ag-header {
+            background-color: #4FC9DA;
+        }
+    </style>
+</head>
+<!--FORM INIT-->
+<div class="container text-center">
+    <h1 class="display-4">Administrar Usuarios</h1>
+    @*<div class="search-container" style="display: flex; width:1500px;">
+        <input id="txtSearch" type="text" class="form-control" placeholder="Filtrar..." />
+        <button class="btn btn-secondary my-2 my-sm-0" type="button" onclick="filterData()" style="margin-left: 10px">Buscar</button>
+    </div>*@
+    <br />
+    <!--AG GRID-->
+    <center>
+        <div id="myGrid" style="height: 650px; width:1500px;" class="ag-theme-alpine"></div>
+    </center>
+
+    <!--Modal configuration-->
+    <div id="myModal" class="modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 150%;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Comprar boletos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div id="eventName"></div>
+                        <div id="modalidad"></div>
+                        <div id="eventDate"></div>
+                        <div style="display: flex; justify-content: space-evenly;">
+                            <div id="eventScenario"></div>
+                            <div id="eventHour"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <form id="frmEvents">
+                            <div class="boletos-inputs">
+                                <label class="col-form-label mt-4" for="">Tipo de boleto:</label>
+                                <label class="col-form-label mt-4" for="">Cantidad:</label>
+                                <label class="col-form-label mt-4" for="">Costo:</label>
+                            </div>
+                            <div class="boletos-inputs">
+                                <label class="col-form-label mt-4" for="inputGeneral">General:</label>
+                                <input type="number" class="form-control" placeholder="0" id="inputGeneral">
+                                <span id="generalCosto"></span>
+                            </div>
+                            <div class="boletos-inputs">
+                                <label class="col-form-label mt-4" for="inputStudents">Estudiantes:</label>
+                                <input type="number" class="form-control" placeholder="0" id="inputStudents">
+                                <span id="studentsCosto"></span>
+
+                            </div>
+                            <div class="boletos-inputs">
+                                <label class="col-form-label mt-4" for="inputOld">Adulto mayor:</label>
+                                <input type="number" class="form-control" placeholder="0" id="inputOld">
+                                <span id="oldCosto"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="inputSections">Selecciona tus asientos:</label>
+                                <div id="seat-map" class="seat-map">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnBuy">Comprar boletos</button>
+                    <div id="redirectData" data-index-url="@Url.Action("Carrito", "Carrito")"></div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
