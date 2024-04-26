@@ -1,0 +1,22 @@
+﻿.boletos-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+    .boletos-inputs > * {
+        width: 120px;
+        height: 40px;
+    }
+
+.img-container {
+    width: 200px;
+    height: 200px;
+}
+
+    .img-container img {
+        border-radius: 10%;
+        height: 250px;
+        width: 400px;
+    }

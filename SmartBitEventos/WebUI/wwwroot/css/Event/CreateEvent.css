@@ -1,0 +1,66 @@
+﻿/* form */
+.boletos-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.boletos-inputs > * {
+    width: 125px;
+    height: 40px;
+}
+.flex-container{
+    display: flex;
+    align-items: center;
+}
+.flex-container > input {
+    text-align: right;
+    width: 100%;
+    margin-right: 10px;
+}
+#inputImagen {
+    width: 30%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/* butacas */
+.seat-map {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    background-color: #77dd77;
+    border: 1px solid #000;
+}
+
+    .seat.unavailable {
+        background-color: #ff5a5f;
+        cursor: not-allowed;
+    }
+
+    .seat.selected {
+        background-color: #ffa500;
+    }
+
+/* filas */
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+/*btn*/
+.btn-container {
+margin-top: 40px;
+width: 100%;
+display: flex;
+justify-content: space-around;
+}

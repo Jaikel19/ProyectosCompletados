@@ -1,0 +1,190 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/bootswatch/dist/united/bootstrap.min.css";
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 991.98px) {
+    main {
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        width: 1500px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1500px !important;
+        padding-left: 2.5% !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1700px;
+    }
+}
+
+    @media (min-width: 768px) {
+        html {
+            font-size: 16px;
+        }
+    }
+
+
+    /* Sidebar */
+    .sidebar {
+        margin-top: 10px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        padding: 70px 0 0; /* Height of navbar */
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+        width: 280px;
+        z-index: 600;
+        font-size: 17px;
+    }
+
+    @media (max-width: 991.98px) {
+        .sidebar {
+            width: 100%;
+        }
+    }
+
+    .sidebar .active {
+        border-radius: 5px;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    }
+
+    .sidebar-sticky {
+        position: relative;
+        top: 0;
+        height: calc(100vh - 48px);
+        padding-top: 0.5rem;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+
+    .icono {
+        color: #4FC9DA;
+        font-size: 25px;
+    }
+
+    body {
+        height: 800px;
+    }
+
+    /* Color Primary */
+
+    .bg-primary {
+        background-color: #4FC9DA !important;
+    }
+
+    .btn-primary {
+        color: #ffffff !important;
+        background-color: #4FC9DA !important;
+        border-color: #4FC9DA !important;
+    }
+
+        .btn-primary:hover {
+            color: #ffffff !important;
+            background-color: #14B4CB !important;
+            border-color: #14B4CB !important;
+        }
+
+
+    /* Color Secondary */
+
+    .bg-secondary {
+        background-color: #F64450 !important;
+    }
+
+    .btn-secondary {
+        color: #ffffff !important;
+        background-color: #F64450 !important;
+        border-color: #F64450 !important;
+    }
+
+        .btn-secondary:hover {
+            color: #ffffff !important;
+            background-color: #D42A35 !important;
+            border-color: #D42A35 !important;
+        }
+
+
+    /* Color Success */
+
+    .bg-success {
+        background-color: #9FBE22 !important;
+    }
+
+    .btn-success {
+        color: #ffffff !important;
+        background-color: #9FBE22 !important;
+        border-color: #9FBE22 !important;
+    }
+
+        .btn-success:hover {
+            color: #ffffff !important;
+            background-color: #8BA61C !important;
+            border-color: #8BA61C !important;
+        }
+
+
+    /* Color Info */
+
+    .bg-info {
+        background-color: #F0EAE5 !important;
+    }
+
+    .btn-info {
+        color: black !important;
+        background-color: #F0EAE5 !important;
+        border-color: #F0EAE5 !important;
+    }
+
+        .btn-info:hover {
+            color: black !important;
+            background-color: #E1D9D1 !important;
+            border-color: #E1D9D1 !important;
+        }
+
+
+
+    .navbar {
+        color: #ffffff !important;
+        background-color: #1E1D1C !important;
+        border-color: #1E1D1C !important;
+        position: fixed !important;
+    }
+
+    .navbar-brand {
+        color: #ffffff !important;
+        background-color: #1E1D1C !important;
+        border-color: #1E1D1C !important;
+    }
+
+
+    .nav-link {
+        color: #ffffff !important;
+        background-color: #1E1D1C !important;
+        border-color: #1E1D1C !important;
+    }
+
+    footer {
+        color: #ffffff !important;
+        background-color: #1E1D1C !important;
+        border-color: #1E1D1C !important;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 120px;
+        padding-top: 3px;
+    }
+
+

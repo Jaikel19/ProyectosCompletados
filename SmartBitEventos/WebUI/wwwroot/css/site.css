@@ -1,0 +1,121 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/bootswatch/dist/united/bootstrap.min.css";
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    height: 800px;
+}
+
+    /* Color Primary */
+
+    .bg-primary {
+        background-color: #4FC9DA !important;
+    }
+
+    .btn-primary {
+        color: #ffffff !important;
+        background-color: #4FC9DA !important;
+        border-color: #4FC9DA !important;
+    }
+
+        .btn-primary:hover {
+            color: #ffffff !important;
+            background-color: #14B4CB !important;
+            border-color: #14B4CB !important;
+        }
+
+
+    /* Color Secondary */
+
+    .bg-secondary {
+        background-color: #F64450 !important;
+    }
+
+    .btn-secondary {
+        color: #ffffff !important;
+        background-color: #F64450 !important;
+        border-color: #F64450 !important;
+    }
+
+        .btn-secondary:hover {
+            color: #ffffff !important;
+            background-color: #D42A35 !important;
+            border-color: #D42A35 !important;
+        }
+
+
+    /* Color Success */
+
+    .bg-success {
+        background-color: #9FBE22 !important;
+    }
+
+    .btn-success {
+        color: #ffffff !important;
+        background-color: #9FBE22 !important;
+        border-color: #9FBE22 !important;
+    }
+
+        .btn-success:hover {
+            color: #ffffff !important;
+            background-color: #8BA61C !important;
+            border-color: #8BA61C !important;
+        }
+
+
+    /* Color Info */
+
+    .bg-info {
+        background-color: #F0EAE5 !important;
+    }
+
+   
+
+        .btn-info:hover {
+            color: black !important;
+            background-color: #E1D9D1 !important;
+            border-color: #E1D9D1 !important;
+        }
+
+
+
+    .navbar {
+        color: #ffffff !important;
+        background-color: #1E1D1C !important;
+        border-color: #1E1D1C !important;
+    }
+
+    .navbar-brand {
+        color: #ffffff !important;
+        background-color: #1E1D1C !important;
+        border-color: #1E1D1C !important;
+    }
+
+
+    .nav-link {
+        color: #ffffff !important;
+        background-color: #1E1D1C !important;
+        border-color: #1E1D1C !important;
+    }
+
+footer {
+    color: #ffffff !important;
+    background-color: #1E1D1C !important;
+    border-color: #1E1D1C !important;
+    position: fixed ;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    padding-top: 3px;
+}
+
+
