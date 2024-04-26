@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #ecf0f1;
+}
+.sub-title {
+  color: #bdc3c7;
+  font-size: 19px;
+  font-family: Helvetica;
+}

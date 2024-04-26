@@ -1,0 +1,27 @@
+<div>
+  <p class="sub-title">Cursos</p>
+</div>
+
+<div class="main-list">
+  <div *ngFor="let curso of cursos" class="list-group">
+    <div class="list-group-item">
+      <p class="list-item-name mb-0">ID del curso: {{ curso.id_curso }}</p>
+      <p class="list-item-name mb-0">Nombre: {{ curso.nombre_curso }}</p>
+      <p class="list-item-company mb-1">Descripcion: {{ curso.descripcion }}</p>
+      <p class="list-item-company mb-1">Creditos: {{ curso.creditos }}</p>
+      <p class="list-item-company mb-1">Profesor: {{ curso.profesor }}</p>
+      <p class="list-item-company mb-1">Hora de inicio: {{ curso.hora_inicio }}</p>
+      <p class="list-item-company mb-1">Hora de finalizacion: {{ curso.hora_fin }}</p>
+      <p class="list-item-company mb-1">Dias de la semana: {{ curso.dias_semana }}</p>
+      <p class="list-item-company mb-1">Modalidad: {{ curso.modalidad  }}</p>
+      <div class="mb-2">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-dark" (click)="openEditModal(curso.id_curso)">Actualizar</button>
+          <button type="button" (click)="onDeleteCurso(curso)" class="btn btn-danger">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

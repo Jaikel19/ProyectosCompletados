@@ -1,0 +1,22 @@
+<div>
+  <p class="sub-title">Estudiantes</p>
+</div>
+
+<div class="main-list">
+  <div *ngFor="let estudiante of estudiantes" class="list-group">
+    <div class="list-group-item">
+      <p class="list-item-name mb-0">Cedula: {{ estudiante.cedula }}</p>
+      <p class="list-item-company mb-1">Nombre: {{ estudiante.nombre }}</p>
+      <p class="list-item-company mb-1">Apellido: {{ estudiante.apellido }}</p>
+      <p class="list-item-company mb-1">Correo: {{ estudiante.correo_electronico }}</p>
+      <div class="mb-2">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-dark" (click)="openEditModal(estudiante.cedula)">Actualizar</button> 
+          <button type="button" (click)="onDeleteEstudiante(estudiante)" class="btn btn-danger">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,20 @@
+<div class="form-container py-4 border-bottom">
+  <h2 class="sub-title">Agregar matricula</h2>
+  <form class="row align-items-end" (ngSubmit)="onSubmit()" #matriculaForm="ngForm">
+    <div class="col-3">
+      <label class="form-label input-title" for="id_estudiante">ID del estudiante:</label>
+      <input type="text" class="form-control" id="id_estudiante" name="id_estudiante" [(ngModel)]="matricula.id_estudiante" required>
+    </div>
+    <div class="col-3">
+      <label class="form-label input-title" for="id_curso">ID del curso:</label>
+      <input type="text" class="form-control" id="id_curso" name="id_curso" [(ngModel)]="matricula.id_curso" required>
+    </div>
+    <div class="col-3">
+      <label class="form-label input-title" for="ano_academico">Año academico:</label>
+      <input type="text" class="form-control" id="ano_academico" name="ano_academico" [(ngModel)]="matricula.ano_academico" required>
+    </div>
+    <div class="col-3">
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </div>
+  </form>
+</div>
