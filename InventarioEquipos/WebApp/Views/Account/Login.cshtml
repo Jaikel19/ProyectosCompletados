@@ -1,0 +1,28 @@
+﻿@using DTO
+@model LoginRequest
+@* En Views/_ViewStart.cshtml *@
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/login.css" />
+
+<form asp-controller="Account" asp-action="Login" method="post">
+    <div>
+        <h1 classname="tituloInicio" style="margin-left: 100px; margin-top: 30px;">
+            Iniciar Sesión
+        </h1>
+        <br />
+    </div>
+    <div>
+        <label asp-for="Username"></label>
+        <input asp-for="Username" />
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+    </div>
+    <div>
+        <button type="submit" style="margin-left: 160px; margin-top: 40px;"  class="btn btn-primary">Iniciar sesión</button>
+    </div>
+</form>

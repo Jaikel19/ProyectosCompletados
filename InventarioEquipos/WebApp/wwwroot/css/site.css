@@ -1,0 +1,60 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.logo {
+    width: 600px !important;
+}
+
+.containerPrincipal {
+    padding-top: 100px;
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+}
+
+.btnL {
+    padding-top: 10px;
+    height: 500px;
+    padding: 195px;
+    text-align: center;
+    margin-top: 100px;
+    color: white;
+    font-size: 35px;
+}
+
+.btnR {
+    padding-top: 10px;
+    height: 500px;
+    padding: 180px;
+    text-align: center;
+    margin-top: 100px;
+    color: white;
+    font-size: 35px;
+}
+
+.contSalto {
+    margin-top: 20px;
+    width:1520px;
+    padding-left:0;
+    padding-right:0;
+}
+
+.table {
+    margin-top: 30px;
+}

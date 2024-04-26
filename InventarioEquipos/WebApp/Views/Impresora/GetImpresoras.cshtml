@@ -1,0 +1,71 @@
+﻿@using DTO
+@model IEnumerable<DTO.Impresora>
+
+<div class="container mt-5">
+    <h2>Lista de Impresoras</h2>
+
+    <form asp-action="GetImpresoras" method="get">
+        <div class="form-group">
+            <div class="contSalto">
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="localidad">Ingrese la Localidad con la que desea realizar la busqueda:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" name="localidad" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary">Buscar por Localidad</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* <label for="localidad">Localidad:</label>
+            <input type="text" name="localidad" class="form-control" /> *@
+        </div>
+    </form>
+
+    <table class="table">
+        <!-- Encabezados de la tabla -->
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>IP</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Serie</th>
+                <th>Localidad</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <!-- Datos de la tabla -->
+        <tbody>
+            @foreach (var impresora in Model)
+            {
+                <tr>
+                    <td>@impresora.Id</td>
+                    <td>@impresora.IP</td>
+                    <td>@impresora.Marca</td>
+                    <td>@impresora.Modelo</td>
+                    <td>@impresora.Serie</td>
+                    <td>@impresora.Localidad</td>
+                    <td>
+                    </td>
+                    <td>
+                        <a asp-controller="Impresora" class="btn btn-primary" asp-action="GetEditI" asp-route-id="@impresora.Id">Editar</a>
+                        <form asp-action="EliminarImpresora" method="delete" style="display:inline;">
+                            <input type="hidden" name="id" value="@impresora.Id" />
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-block btn-success" style="width: 1230px;" asp-area="" asp-controller="Impresora" asp-action="RegistrarI">Registrar Impresora</a>
+    @* <a class="nav-link text-dark" asp-area="" asp-controller="Impresora" asp-action="RegistrarI">Registrar Impresora</a> *@
+</div>

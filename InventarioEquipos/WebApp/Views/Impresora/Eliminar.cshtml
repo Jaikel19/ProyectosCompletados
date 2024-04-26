@@ -1,0 +1,14 @@
+﻿@model DTO.Impresora
+
+<h2>Eliminar Impresora</h2>
+
+<p>¿Estás seguro de que deseas eliminar la siguiente impresora?</p>
+
+<form asp-action="EliminarImpresora" asp-route-id="@Model.Id" method="get">
+    <div>
+        <input type="hidden" asp-for="Id" />
+
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="GetImpresoras">Cancelar</a>
+    </div>
+</form>

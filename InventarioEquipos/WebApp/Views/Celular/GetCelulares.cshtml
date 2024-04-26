@@ -1,0 +1,67 @@
+﻿@using DTO
+@model IEnumerable<DTO.Celular>
+
+<div class="container mt-5">
+    <h2>Lista de Celulares</h2>
+
+    <form asp-action="GetCelulares" method="get">
+        <div class="form-group">
+            <div class="contSalto">
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="localidad">Ingrese la Localidad con la que desea realizar la busqueda:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" name="localidad" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary" >Buscar por Localidad</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* <label for="localidad">Localidad:</label>
+            <input type="text" name="localidad" class="form-control" /> *@
+        </div>
+@*         <button type="submit" class="btn btn-primary">Buscar por Localidad</button> *@
+    </form>
+    <br />
+
+    <table class="table">
+        <!-- Encabezados de la tabla -->
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>SIM</th>
+                <th>Localidad</th>
+                <th></th>
+            </tr>
+        </thead>
+        <!-- Datos de la tabla -->
+        <tbody>
+            @foreach (var celular in Model)
+            {
+                <tr>
+                    <td>@celular.Id</td>
+                    <td>@celular.Marca</td>
+                    <td>@celular.Modelo</td>
+                    <td>@celular.SIM</td>
+                    <td>@celular.Localidad</td>
+                    <td>
+                        <a asp-controller="Celular" class="btn btn-primary" asp-action="GetEdit" asp-route-id="@celular.Id">Editar</a>
+                        <form asp-action="EliminarCelular" method="delete" style="display:inline;">
+                            <input type="hidden" name="id" value="@celular.Id" />
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-block btn-success" style="width: 1200px;" asp-area="" asp-controller="Celular" asp-action="Registrar">Registrar Celular</a>
+</div>

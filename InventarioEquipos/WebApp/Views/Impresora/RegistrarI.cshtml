@@ -1,0 +1,51 @@
+﻿@model DTO.Impresora
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Impresora</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Registrar Impresora</h2>
+        <form asp-action="RegistrarI" method="post">
+
+            <div class="form-group">
+                <label asp-for="IP"></label>
+                <input asp-for="IP" class="form-control" />
+                <span asp-validation-for="IP" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Marca"></label>
+                <input asp-for="Marca" class="form-control" />
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Modelo"></label>
+                <input asp-for="Modelo" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Serie"></label>
+                <input asp-for="Serie" class="form-control" />
+                <span asp-validation-for="Serie" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Localidad"></label>
+                <input asp-for="Localidad" class="form-control" />
+                <span asp-validation-for="Localidad" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar Impresora</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

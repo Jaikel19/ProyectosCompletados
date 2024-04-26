@@ -1,0 +1,14 @@
+﻿@model DTO.Celular
+
+<h2>Eliminar Celular</h2>
+
+<p>¿Estás seguro de que deseas eliminar el siguiente celular?</p>
+
+<form asp-action="EliminarCelular" asp-route-id="@Model.Id" method="get">
+    <div>
+        <input type="hidden" asp-for="Id" />
+
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="GetCelulares">Cancelar</a>
+    </div>
+</form>
